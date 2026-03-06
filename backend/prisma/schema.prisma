@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Document {
+  id        String   @id @default(cuid())
+  filename  String
+  status    String   @default("pending") // pending | parsed | analyzed
+  rawText   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  chunks    DocumentChunk[]
+  summary   ContractSummary?
+  risks     Risk[]
+  qaHistory QAHistory[]
+}
+
+model DocumentChunk {
+  id           String   @id @default(cuid())
+  documentId   String
+  chunkIndex   Int
+  content      String
+  sectionTitle String?
+  metadata     Json     @default("{}")
+  createdAt    DateTime @default(now())
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@index([documentId])
+}
+
+model ContractSummary {
+  id         String   @id @default(cuid())
+  documentId String   @unique
+  data       Json
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+}
+
+model Risk {
+  id                String   @id @default(cuid())
+  documentId        String
+  riskType          String
+  severity          String   // low | medium | high
+  clauseReference   String
+  explanation       String
+  suggestedRevision String
+  createdAt         DateTime @default(now())
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@index([documentId])
+}
+
+model QAHistory {
+  id         String   @id @default(cuid())
+  documentId String
+  question   String
+  answer     String
+  citations  Json     @default("[]")
+  createdAt  DateTime @default(now())
+
+  document Document @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@index([documentId])
+}
+
+// Feedback is polymorphic (targets summary/risk/qa) — no DB-level FK needed
+model Feedback {
+  id         String   @id @default(cuid())
+  targetType String   // summary | risk | qa
+  targetId   String
+  label      String   // helpful | not_helpful | false_positive | acceptable | needs_review
+  comment    String?
+  createdAt  DateTime @default(now())
+
+  @@index([targetType, targetId])
+}

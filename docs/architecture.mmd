@@ -1,0 +1,19 @@
+flowchart TD
+  user[User]
+  frontend[FrontendReact]
+  backend[BackendExpress]
+  parser[PdfParserAndChunker]
+  llm[AnthropicLLM]
+  db[(PostgreSQLPrisma)]
+  feedback[FeedbackStore]
+
+  user -->|"Upload / Ask / Review"| frontend
+  frontend -->|"REST /api"| backend
+  backend -->|"parseAndChunk"| parser
+  parser -->|"chunks+metadata"| db
+  backend -->|"summary/risk/qa prompts"| llm
+  llm -->|"structured JSON + citations"| backend
+  backend -->|"persist document/summary/risk/qa"| db
+  frontend -->|"submit feedback"| backend
+  backend -->|"store labels/comments"| feedback
+  feedback -->|"feedback rows"| db
