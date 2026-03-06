@@ -5,3 +5,5 @@ dist/
 .DS_Store
 pg_data/
 interview_prep/
+docs/interview-prep.md
+docs/interview-script.md
