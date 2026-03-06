@@ -106,10 +106,3 @@ See [`docs/screenshots/`](docs/screenshots/) for UI captures: upload, summary/ri
 ## Evaluation Sample
 
 [`docs/eval-set.json`](docs/eval-set.json) contains sample questions with expected answer summaries and clause references for manual spot-checking.
-
-## Resume Bullets
-
-- Built an end-to-end full-stack LLM contract review assistant using React, TypeScript, Node.js, PostgreSQL, Prisma, and Anthropic API.
-- Implemented PDF ingestion, chunk-based retrieval QA, structured risk extraction, and persisted review history workflows for legal document analysis.
-- Designed schema-validated JSON outputs and citation-grounded answering to improve response consistency and reduce unsupported claims.
-- Added user feedback capture and analysis artifacts to support iterative quality improvements and faster prompt tuning cycles.
