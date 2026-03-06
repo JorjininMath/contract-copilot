@@ -1,37 +1,17 @@
 [
   {
-    "documentId": "sample-msa-001",
-    "question": "What are the termination conditions?",
-    "expectedAnswerSummary": "Either party can terminate for material breach after a cure period.",
-    "expectedClause": "Termination",
-    "riskLabels": ["missing termination notice period"]
+    "question": "If the company brings 120 net wells into production during one year, how much bonus could the employee receive under the contract, and what rule limits the total payout?",
+    "expectedAnswerSummary": "The answer should calculate bonus using the well-production bonus schedule and state the cap or limiting rule on total payout.",
+    "expectedClause": "bonus"
   },
   {
-    "documentId": "sample-saa-002",
-    "question": "Is there an automatic renewal clause?",
-    "expectedAnswerSummary": "Agreement auto-renews for successive 12-month terms unless written notice is provided.",
-    "expectedClause": "Term and Renewal",
-    "riskLabels": ["auto renewal"]
+    "question": "Suppose the company relocates the employee's workplace 40 miles away from the current location. Under the agreement, does this qualify as constructive termination, and what options does the employee have after such an event?",
+    "expectedAnswerSummary": "The answer should determine whether relocation distance triggers constructive termination and describe resulting rights and remedies.",
+    "expectedClause": "constructive termination"
   },
   {
-    "documentId": "sample-nsa-003",
-    "question": "Does this agreement limit liability?",
-    "expectedAnswerSummary": "Liability is capped to fees paid in the prior 12 months, excluding confidentiality breaches.",
-    "expectedClause": "Limitation of Liability",
-    "riskLabels": ["unilateral liability allocation"]
-  },
-  {
-    "documentId": "sample-sow-004",
-    "question": "What payment obligations does the customer have?",
-    "expectedAnswerSummary": "Customer pays net-30 invoices and late fees apply after due date.",
-    "expectedClause": "Fees and Payment",
-    "riskLabels": ["unclear payment penalty"]
-  },
-  {
-    "documentId": "sample-dpa-005",
-    "question": "What confidentiality obligations are defined?",
-    "expectedAnswerSummary": "Parties must protect confidential information and use it only for contract performance.",
-    "expectedClause": "Confidentiality",
-    "riskLabels": ["confidentiality ambiguity"]
+    "question": "If the company terminates the employee for gross negligence, but an arbitrator later rules the termination was unjustified, what compensation obligations does the company have under the agreement?",
+    "expectedAnswerSummary": "The answer should connect termination-for-cause with arbitration outcome and state compensation obligations if cause is rejected.",
+    "expectedClause": "arbitration"
   }
 ]

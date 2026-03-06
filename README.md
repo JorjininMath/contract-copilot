@@ -101,7 +101,20 @@ All error responses: `{ error: string }`
 
 ## Screenshots
 
-See [`docs/screenshots/`](docs/screenshots/) for UI captures: upload, summary/risks panel, grounded QA with citations, history page.
+### Dashboard
+![Dashboard](docs/screenshots/01-dashboard.png)
+
+### Summary
+![Summary](docs/screenshots/02-summary.png)
+
+### Risks
+![Risks](docs/screenshots/03-risk.png)
+
+### QA with Citations
+![QA with Citations](docs/screenshots/04-qa-citations.png)
+
+### History
+![History](docs/screenshots/05-history.png)
 
 ## Evaluation Sample
 
